@@ -2,17 +2,20 @@
 
 # Récupération
 ==============
-
 git clone https://github.com/zerr0s/changeBackground.git
 
 # Description
 =============
-
 This tool provide a simple way to change the background on multiple display screen.
 Just configure the shell script and add a crontab line to change periodically your background.
 
 Cet outil fourni un moyen simple de changer son fond d'écran sur tous les display configurés.
 Il vous suffit de configurer le script et de l'ordonnancer dans la crontab.
+
+# Languages
+===========
+The tool is working in english and french depending the $LANG environnment variable.
+If the $LANG is not set or doesn't contains "fr" ou "en" string, the english language is used by default.
 
 # Tool / Outils
 ===============
@@ -24,7 +27,6 @@ gentoo          : emerge x11-misc/nitrogen
 
 # Configuration
 ===============
-
 setTool=$(which nitrogen) <-- configure the bin tool to set the background images // binaire qui permet de changer l'image
 optTool="--set-centered" <-- configure the options for te tool // options du binaire
 
