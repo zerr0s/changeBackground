@@ -45,6 +45,7 @@ LIST_FILE="list.txt"
 function getFiles {
   OLDIFS=${IFS}
   IFS="||"
+  $(rm -f "${TMP_DIR}/${LIST_FILE}")
   for i in ${IMG_DIR[*]}
   do
     if [[ ! -d "$i" ]]
@@ -69,6 +70,7 @@ function setBckgd {
     OLDIFS=${IFS}
     IFS="||"
     bckgd=$(sort --random-sort "${TMP_DIR}/${LIST_FILE}" | head -n 1)
+    [[ -z ${bckgd} ]] && getFiles && bckgd=$(sort --random-sort "${TMP_DIR}/${LIST_FILE}" | head -n 1)
     newList=$(cat "${TMP_DIR}/${LIST_FILE}" | grep -v "${bckgd}")
     echo ${newList} > "${TMP_DIR}/${LIST_FILE}"
     echo ${Ltab["${language}_fApply"]} $(basename ${bckgd}).
